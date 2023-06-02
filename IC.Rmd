@@ -1071,4 +1071,319 @@ print(intervalo)
 
 ### Varianzas desconocidas y distintas
 
-1.  
+1.  Se desea conocer si el tiempo promedio de atención en dos cajeros automáticos diferentes es significativamente
+diferente. Se toman muestras aleatorias de 50 transacciones en cada cajero y se obtienen medias muestrales
+de 3.5 y 4.2 minutos, respectivamente. La desviación estándar poblacional es conocida y es de 0.8 minutos.
+Construir un intervalo de confianza del 95 % para la diferencia de las medias poblacionales.
+```{r}
+n1 <- 50
+n2 <- 50
+x1barra <- 3.5
+x2barra <- 4.2
+desvest <- 0.8
+nc <- 1.96
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest/n1)+sqrt(desvest/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo <- paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","min")
+print(intervalo)
+```
+2.  Se quiere determinar si hay una diferencia significativa en la altura promedio de dos poblaciones de estudiantes
+universitarios. Se toman muestras aleatorias de 100 estudiantes de cada población y se obtienen medias
+muestrales de 1.72 y 1.68 metros, respectivamente. La desviación estándar poblacional es conocida y es de 0.07
+metros. Construir un intervalo de confianza del 99 % para la diferencia de las medias poblacionales.
+```{r}
+n1 <- 100
+n2 <- 100
+x1barra <- 1.72
+x2barra <- 1.68
+desvest <- 0.07
+nc <- 2.57
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest/n1)+sqrt(desvest/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo <- paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","metros")
+print(intervalo)
+```
+3. Se quiere comparar la productividad de dos plantas de producción de una empresa. Se toman muestras aleatorias
+de 200 trabajadores de cada planta y se obtienen medias muestrales de 150 y 140 unidades producidas por
+hora, respectivamente. La desviación estándar poblacional es conocida y es de 12 unidades por hora. Construir
+un intervalo de confianza del 90 % para la diferencia de las medias poblacionales
+```{r}
+n1 <- 200
+n2 <- 200
+x1barra <- 150
+x2barra <- 140
+desvest <- 12
+nc <- 1.64
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest/n1)+sqrt(desvest/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo<-paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","unidades por hora")
+print(intervalo)
+```
+4. Un fabricante de focos quiere comparar dos marcas diferentes en términos de vida útil. Toma una muestra de
+100 focos de la marca A, con una vida media de 1200 horas y una desviación estándar de 200 horas, y una
+muestra de 120 focos de la marca B, con una vida media de 1350 horas y una desviación estándar de 180 horas.
+Construir un intervalo de confianza del 95 % para la diferencia media de vida útil entre las dos marcas.
+```{r}
+n1 <- 100
+n2 <- 120
+x1barra <-1200
+x2barra <- 1350
+desvest1 <- 200
+desvest2 <- 180
+nc <- 1.96
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest1/n1)+sqrt(desvest2/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo<-paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","horas")
+print(intervalo)
+```
+5. Un estudio quiere comparar la efectividad de dos tipos de medicamentos en el tratamiento de la hipertensión.
+Se toma una muestra de 80 pacientes tratados con el medicamento A, con una presión arterial media de 130
+mmHg y una desviación estándar de 10 mmHg, y una muestra de 90 pacientes tratados con el medicamento B,
+con una presión arterial media de 125 mmHg y una desviación estándar de 12 mmHg. Construir un intervalo
+de confianza del 99 % para la diferencia media en la presión arterial entre los dos medicamentos.
+```{r}
+n1 <- 80
+x1barra <-130
+desvest1 <- 10
+n2 <- 90
+x2barra <- 125
+desvest2 <- 12
+nc <- 2.57
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest1/n1)+sqrt(desvest2/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo<-paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","mmHg")
+print(intervalo)
+```
+6. Se quiere comparar dos programas de entrenamiento en términos de su efectividad en el aumento de la fuerza
+muscular. Se toma una muestra de 60 atletas que han seguido el programa A, con una fuerza media de 150
+kg y una desviación estándar de 20 kg, y una muestra de 70 atletas que han seguido el programa B, con una
+fuerza media de 155 kg y una desviación estándar de 18 kg. Construir un intervalo de confianza del 90 % para
+la diferencia media en la fuerza muscular entre los dos programas.
+```{r}
+n1 <- 60
+n2 <- 70
+x1barra <-150
+x2barra <- 155
+desvest1 <- 20
+desvest2 <- 18
+nc <- 164
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest1/n1)+sqrt(desvest2/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo<-paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","kg")
+print(intervalo)
+```
+7. Un estudio quiere comparar dos tipos de fertilizantes en términos de su efectividad en el crecimiento de plantas de maíz. Se toma una muestra de 200 plantas tratadas con el fertilizante A, con una altura media de 1.8 metros y una desviación estándar de 0.2 metros, y una muestra de 220 plantas tratadas con el fertilizante B, con una altura media de 2.0 metros y una desviación estándar de 0.18 metros. Construir un intervalo de confianza del
+95 % para la diferencia media en la altura de las plantas entre los dos fertilizantes.
+```{r}
+n1 <- 200
+n2 <- 220
+x1barra <-1.8
+x2barra <-2.0 
+desvest1 <- 0.2
+desvest2 <- 0.18
+nc <- 1.96 
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest1/n1)+sqrt(desvest2/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo<-paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","metros")
+print(intervalo)
+```
+8. Se quiere comparar el rendimiento de dos tipos de discos duros en términos de su velocidad de lectura y
+escritura. Se toma una muestra de 150 discos duros del tipo A, con una velocidad media de lectura/escritura
+de 100 MB/s y una desviación estándar de 10 MB/s, y una muestra de 180 discos duros del tipo B, con
+una velocidad media de lectura/escritura de 120 MB/s y una desviación estándar de 12 MB/s. Construir un
+intervalo de confianza del 99 % para la diferencia media en la velocidad de lectura/escritura entre los dos tipos
+de discos duros.
+```{r}
+n1 <- 150
+n2 <- 180
+x1barra <-100
+x2barra <-120 
+desvest1 <- 10
+desvest2 <- 12
+nc <- 2.57
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest1/n1)+sqrt(desvest2/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo<-paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","MB/s")
+print(intervalo)
+```
+9. Un investigador desea comparar la efectividad de dos métodos de enseñanza de matemáticas en una muestra
+de 60 estudiantes. El primer grupo de 30 estudiantes recibió el método A y el segundo grupo de 30 estudiantes
+recibió el método B. La media y la desviación estándar de las calificaciones de los estudiantes en el grupo A
+fueron de 75 y 8, respectivamente, mientras que en el grupo B fueron de 80 y 10, respectivamente. Construir
+un intervalo de confianza del 95 % para la diferencia media entre las calificaciones de los dos grupos.
+```{r}
+n1 <-30
+n2 <- 30
+x1barra <-75
+x2barra <- 80
+desvest1 <- 8
+desvest2 <- 10
+nc <- 1.64
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest1/n1)+sqrt(desvest2/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo<-paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","%")
+print(intervalo)
+```
+10. Se desea comparar la efectividad de dos medicamentos para reducir la presión arterial en pacientes con
+hipertensión. Un grupo de 25 pacientes tomó el medicamento A y otro grupo de 30 pacientes tomó el
+medicamento B. La media y la desviación estándar de la presión arterial de los pacientes en el grupo A fueron
+de 140 y 10, respectivamente, mientras que en el grupo B fueron de 135 y 12, respectivamente. Construir un
+intervalo de confianza del 90 % para la diferencia media entre las presiones arteriales de los dos grupos
+```{r}
+n1 <- 25
+n2 <- 30
+x1barra <-140
+x2barra <- 135
+desvest1 <- 10
+desvest2 <- 12
+nc <- 1.64
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest1/n1)+sqrt(desvest2/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo<-paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","%")
+print(intervalo)
+```
+11. Se desea comparar la duración de dos tipos de baterías para un teléfono móvil. Se seleccionó una muestra
+aleatoria de 50 baterías de cada tipo. La media y la desviación estándar de la duración de las baterías del tipo
+A fueron de 20 horas y 3 horas, respectivamente, mientras que las del tipo B fueron de 22 horas y 4 horas,
+respectivamente. Construir un intervalo de confianza del 99 % para la diferencia media entre las duraciones de
+las baterías de los dos tipos.
+```{r}
+n1 <- 50
+n2 <- 50
+x1barra <-20
+x2barra <-22 
+desvest1 <- 3
+desvest2 <- 4
+nc <- 2.57
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest1/n1)+sqrt(desvest2/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo<-paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","horas")
+print(intervalo)
+```
+12. Se desea comparar el tiempo que tardan dos marcas de coches en recorrer una distancia de 100 km. Se seleccionó
+una muestra aleatoria de 20 coches de cada marca. La media y la desviación estándar del tiempo que tardaron
+los coches de la marca A fueron de 1.5 horas y 0.2 horas, respectivamente, mientras que los de la marca B
+tardaron 1.3 horas y 0.3 horas, respectivamente. Construir un intervalo de confianza del 95 % para la diferencia
+media entre los tiempos que tardan los coches de las dos marcas.
+```{r}
+n1 <-20
+n2 <- 20
+x1barra <-1.5
+x2barra <- 1.3
+desvest1 <- 0.2
+desvest2 <- 0.3
+nc <- 1.96
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest1/n1)+sqrt(desvest2/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo<-paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","horas")
+print(intervalo)
+```
+13. Se desea comparar el rendimiento de dos tipos de fertilizantes en el crecimiento de las plantas de maíz. Se
+seleccionó una muestra aleatoria de 40 plantas de cada tipo de fertilizante. La media y la desviación estándar
+del crecimiento de las plantas con el fertilizante A fueron de 150 cm y 20 cm, respectivamente, mientras que
+las del fertilizante B fueron de 160 cm y 18 cm, respectivamente. Construir un intervalo de confianza del 99 %
+para la diferencia media entre los crecimientos de las plantas con los dos tipos de fertilizante.
+```{r}
+n1 <- 40
+n2 <- 40
+x1barra <-150
+x2barra <- 160
+desvest1 <- 20
+desvest2 <- 18
+nc <- 2.57
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest1/n1)+sqrt(desvest2/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo<-paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","cm")
+print(intervalo)
+```
+14. Se quiere comparar el tiempo promedio de entrega de dos proveedores de paquetes. Se toma una muestra de
+25 paquetes del primer proveedor, con un tiempo promedio de entrega de 3.5 días y una desviación estándar
+muestral de 1.2 días, y una muestra de 30 paquetes del segundo proveedor, con un tiempo promedio de entrega
+de 4.2 días y una desviación estándar muestral de 1.5 días. Construya un intervalo de confianza del 95 % para
+la diferencia de los tiempos promedio de entrega.
+```{r}
+n1 <- 25
+n2 <- 30
+x1barra <-3.5
+x2barra <-4.2 
+desvest1 <- 1.2
+desvest2 <- 1.5
+nc <- 1.96
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest1/n1)+sqrt(desvest2/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo<-paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","días")
+print(intervalo)
+```
+15. Se quiere comparar el rendimiento promedio de dos grupos de estudiantes en un examen de matemáticas.
+Se toma una muestra de 10 estudiantes del primer grupo, con un rendimiento promedio de 75 puntos y
+una desviación estándar muestral de 8 puntos, y una muestra de 12 estudiantes del segundo grupo, con un
+rendimiento promedio de 68 puntos y una desviación estándar muestral de 10 puntos. Se asume que las varianzas de ambos grupos son iguales. Construya un intervalo de confianza del 90 % para la diferencia de los
+rendimientos promedio.
+```{r}
+n1 <- 10
+n2 <- 12
+x1barra <-75
+x2barra <-68 
+desvest1 <- 8
+desvest2 <- 10
+nc <- 1.64
+
+xbarra <- x1barra-x2barra
+errorstd <-sqrt(desvest1/n1)+sqrt(desvest2/n2)
+liminf <- xbarra-nc*errorstd
+limsup <- xbarra+nc*errorstd
+intervalo<-paste0("mu ∈ ","(",round(liminf,2),",",round(limsup,2),")","cm")
+print(intervalo)
+```
+
+
+
+
+
+
+
+
+
+
+
